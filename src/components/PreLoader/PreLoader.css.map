@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,qBAAoB;EAC/B,KAAK,EAAC,KAAK;EACX,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,UAAU;CAC/B",
+    "sources": [
+        "PreLoader.scss"
+    ],
+    "names": [],
+    "file": "PreLoader.css"
+}
