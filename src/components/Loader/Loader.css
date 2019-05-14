@@ -1,53 +1,24 @@
-.preloader {
+.loader {
   width: 100%;
   height: 100vh;
 }
 
-.container {
+.loader .text {
+  width: 150px;
   position: absolute;
+  text-align: center;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 400px;
-}
-
-.container .text {
   font-family: Gloss and Bloom;
-  font-size: 80px;
-  white-space: nowrap;
   background-image: url("../../assets/images/background10.jpg");
   background-size: 100% 100%;
+  font-size: 90px;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-animation: anim 1s infinite;
           animation: anim 1s infinite;
-}
-
-.container .title {
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.container .loader {
-  text-align: center;
-}
-
-.container .loader .bar {
-  display: inline-block;
-  height: 2px;
-  width: 400px;
-  background-color: lightgray;
-}
-
-.container .loader .fill {
-  width: 0%;
-  height: 100%;
-  background-color: #2c2c54;
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 @-webkit-keyframes anim {
@@ -121,4 +92,4 @@
     background-image: url("../../assets/images/background9.jpg");
   }
 }
-/*# sourceMappingURL=PreLoader.css.map */
+/*# sourceMappingURL=Loader.css.map */
