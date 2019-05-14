@@ -1,0 +1,61 @@
+@import "./../../constants/ThemeConstants/Colors";
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //   border: 1px solid $themePrimaryColor;
+  padding: 100px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 0 32px 0px $boxShadow;
+  .logoImage {
+    position: absolute;
+    top: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $themePrimaryColor;
+    box-shadow: 0px 0 7px 0px $boxShadow;
+    .logo {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .login-form {
+    width: 350px;
+    .ant-input {
+      border: 0;
+      border-radius: 10px;
+      transition: all 1s;
+      height: 60px;
+      &:focus {
+        border: 0;
+        box-shadow: 0 0 0 0;
+        border-bottom: 1px solid $themePrimaryColor;
+      }
+    }
+    .ant-input-prefix {
+      i {
+        color: $themePrimaryColor !important;
+      }
+    }
+    .login-form-button {
+      width: 100%;
+      height: 60px;
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+  .help {
+    font-weight: bold;
+  }
+}
