@@ -1,0 +1,29 @@
+@import "./../../constants/ThemeConstants/Colors";
+@import "./../../constants/ThemeConstants/variable";
+
+.header {
+  height: $header_height;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px 2px $boxShadow;
+  display: flex;
+  justify-content: space-between;
+  .left {
+    .logoImage {
+      height: $header_height;
+      width: $header_height;
+    }
+  }
+  .right {
+    height: 100%;
+    width: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .custom_button {
+      font-size: 18px;
+      height: 40px;
+      box-shadow: 0 0 20px 0 $boxShadow;
+    }
+  }
+}

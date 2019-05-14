@@ -1,0 +1,40 @@
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  -webkit-box-shadow: 0 0 15px 2px #cecece;
+          box-shadow: 0 0 15px 2px #cecece;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .left .logoImage {
+  height: 80px;
+  width: 80px;
+}
+
+.header .right {
+  height: 100%;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .right .custom_button {
+  font-size: 18px;
+  height: 40px;
+  -webkit-box-shadow: 0 0 20px 0 #cecece;
+          box-shadow: 0 0 20px 0 #cecece;
+}
+/*# sourceMappingURL=Header.css.map */
