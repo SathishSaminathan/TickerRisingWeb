@@ -31,10 +31,40 @@
           justify-content: center;
 }
 
+.header .right .avatarContainer {
+  padding: 10px;
+}
+
 .header .right .custom_button {
-  font-size: 18px;
-  height: 40px;
-  -webkit-box-shadow: 0 0 20px 0 #cecece;
-          box-shadow: 0 0 20px 0 #cecece;
+  font-size: 15px;
+  -webkit-box-shadow: 0 0 50px 1px #cecece !important;
+          box-shadow: 0 0 50px 1px #cecece !important;
+  background-color: #2c2c54 !important;
+}
+
+.ant-modal .ant-modal-content {
+  border-radius: 10px;
+}
+
+.ant-modal .ant-modal-content .ant-modal-header {
+  background: -webkit-gradient(linear, left top, right top, color-stop(20.55447%, #4a4a96), color-stop(20.55447%, #494995), color-stop(80.55479%, #2c2c54));
+  background: linear-gradient(90deg, #4a4a96 20.55447%, #494995 20.55447%, #2c2c54 80.55479%);
+}
+
+.ant-modal .ant-modal-content .ant-modal-header .ant-modal-title {
+  color: white;
+  font-size: 20px;
+}
+
+.ant-modal .ant-modal-content .ant-modal-body .ant-form-item-label label {
+  font-size: 15px;
+}
+
+.ant-upload-list .ant-upload-list-item {
+  border-color: #2c2c54;
+}
+
+.ant-upload-list .ant-upload-list-item .ant-upload-list-item-name {
+  color: #2c2c54;
 }
 /*# sourceMappingURL=Header.css.map */
