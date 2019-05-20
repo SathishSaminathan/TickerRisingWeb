@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Row, Col, Table, Button, Icon, Input } from "antd";
 import Highlighter from "react-highlight-words";
-
-import "./DashBoard.css";
+import { Menu, ChildButton, MainButton } from "react-mfb";
+import "react-mfb/mfb.css";
 
 import PendingIssueList from "../../components/PendingIssue/PendingIssue";
 import WorkInProgressList from "../../components/WorkInProgress/WorkInProgress";
 import CompletedIssueList from "../../components/CompletedIssue/CompletedIssue";
+import Header from "../../components/Header";
+
+import "./DashBoard.css";
 
 class DashBoard extends Component {
   state = {
@@ -14,7 +17,8 @@ class DashBoard extends Component {
     sortedInfo: null,
     cardType: null,
     tableHeader: null,
-    searchText: ""
+    searchText: "",
+    isOpen: false
   };
 
   handleChange = (pagination, filters, sorter) => {
@@ -188,7 +192,8 @@ class DashBoard extends Component {
     ];
 
     return (
-      <div>
+      <React.Fragment>
+        <Header />
         <Row>
           <Col xs={{ span: 24 }} lg={{ span: 8 }}>
             <PendingIssueList gettingValues={this.getData} />
@@ -216,7 +221,19 @@ class DashBoard extends Component {
             </Col>
           </div>
         </Row>
-      </div>
+        <Menu effect={"fountain"} method={"hover"} position={"br"}>
+          <MainButton
+            iconResting="fas fa-plus"
+            iconActive="fas fa-times"
+          />
+          <ChildButton
+            onClick={(e)=>{console.log('child clicked') }}
+            icon="fas fa-camera-retro"
+            label="View on Github"
+            // href="https://github.com/nobitagit/react-material-floating-button/"
+          />
+        </Menu>
+      </React.Fragment>
     );
   }
 }
