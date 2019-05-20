@@ -67,4 +67,28 @@
 .ant-upload-list .ant-upload-list-item .ant-upload-list-item-name {
   color: #2c2c54;
 }
+
+.ant-popover {
+  max-width: 260px;
+}
+
+.popover_style {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.popover_style .email {
+  font-size: 18px !important;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*# sourceMappingURL=Header.css.map */

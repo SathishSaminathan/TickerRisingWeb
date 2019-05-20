@@ -67,3 +67,20 @@
     }
   }
 }
+
+.ant-popover{
+  max-width: 260px;
+}
+.popover_style{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .email{
+    font-size: 18px !important;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

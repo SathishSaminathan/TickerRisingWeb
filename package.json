@@ -5,10 +5,13 @@
   "dependencies": {
     "antd": "^3.18.1",
     "axios": "^0.18.0",
+    "firebase": "^6.0.2",
     "jquery": "^3.4.1",
     "react": "^16.8.6",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
     "react-highlight-words": "^0.16.0",
+    "react-mfb": "^0.6.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1"
   },

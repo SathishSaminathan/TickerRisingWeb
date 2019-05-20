@@ -10,8 +10,8 @@ class Routes extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/dashboard" component={DashBoard} />
-          <Route path="/register" component={Register} />
+          <Route path="/" exact component={DashBoard} />
+          <Route path="/login" component={Login} />
           {/* <Route path="/" exact component={Login} /> */}
           <Route render={()=><h4>Error Page</h4>}/>
         </Switch>

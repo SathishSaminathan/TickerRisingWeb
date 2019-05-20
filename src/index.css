@@ -119,12 +119,18 @@ code {
   color: #2c2c54 !important;
 }
 
-
-
 .ant-table-thead > tr.ant-table-row-hover > td,
-    .ant-table-tbody > tr.ant-table-row-hover > td,
-    .ant-table-thead > tr:hover > td,
-    .ant-table-tbody > tr:hover > td,
-    tr:hover > td {
-        /* background: red !important; */
-    }
+.ant-table-tbody > tr.ant-table-row-hover > td,
+.ant-table-thead > tr:hover > td,
+.ant-table-tbody > tr:hover > td,
+tr:hover > td {
+  /* background: red !important; */
+}
+
+
+/* ant popover styles starts here */
+.ant-popover-arrow{
+  /* background-color: #2c2c54 !important; */
+  border-top-color: #2c2c54 !important;
+  border-left-color: #2c2c54 !important;
+}

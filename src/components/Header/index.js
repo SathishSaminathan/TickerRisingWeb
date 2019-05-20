@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import { Button, Avatar, Popover } from "antd";
+import { Button, Avatar, Popover, Tooltip } from "antd";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
+import firebase from "../../config/firebase";
 import images from "../../assets/images";
 // import Button from "../Button";
 
 import "./Header.css";
 import FormModal from "../FormModal";
+import { customNotification } from "../Notification";
+import AppConstants from "../../constants/AppConstants";
 
 class Header extends Component {
   state = {
-    visible: false
+    visible: false,
+    email: "AnanyaAnanyaAnanya@gmail.com"
   };
 
   showModal = () => {
@@ -37,11 +42,36 @@ class Header extends Component {
     this.formRef = formRef;
   };
 
+  logout = () => {
+    firebase.auth().signOut();
+  };
+
   render() {
-    const text = <span>Ananya</span>;
+    const text = <span>LoggedIn as</span>;
     const content = (
-      <div>
-        <p>Logout</p>
+      <div className="popover_style">
+        <Tooltip
+          placement="left"
+          title={
+            <CopyToClipboard
+              text={this.state.email}
+              onCopy={() =>
+                customNotification(
+                  AppConstants.INFO_MESSAGE,
+                  "Email To Clipboard!!",
+                  AppConstants.BOTTOM_RIGHT
+                )
+              }
+            >
+              <span>{this.state.email}</span>
+            </CopyToClipboard>
+          }
+        >
+          <span className="email">AnanyaAnanyaAnanya@gmail.com</span>
+        </Tooltip>
+        <Button type="primary" onClick={this.logout}>
+          Logout
+        </Button>
       </div>
     );
     return (
@@ -63,7 +93,10 @@ class Header extends Component {
               content={content}
               trigger="click"
             >
-              <Avatar size="large" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              <Avatar
+                size="large"
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
             </Popover>
           </div>
           <Button

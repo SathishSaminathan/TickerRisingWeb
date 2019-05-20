@@ -84,3 +84,18 @@
     }
   }
 }
+
+.mfb-component--br {
+  margin: 0;
+  bottom: 10px;
+  right: 5px;
+  a {
+    &:hover {
+      color: white;
+    }
+  }
+}
+.mfb-component__wrap {
+  padding: 0;
+  margin: 0;
+}

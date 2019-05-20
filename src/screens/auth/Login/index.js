@@ -1,21 +1,47 @@
 import React, { Component } from "react";
 import { Form, Icon, Input, Button } from "antd";
 
+import firebase from "../../../config/firebase";
 import images from "../../../assets/images";
 
 import "./Login.css";
+import { customNotification } from "../../../components/Notification";
+import AppConstants from "../../../constants/AppConstants";
 
 class Login extends Component {
+  state = {
+    buttonLoading: false
+  };
+
   handleSubmit = e => {
     e.preventDefault();
+   this.setState({
+     buttonLoading:true
+   })
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(values.email, values.password)
+          .then(user => {
+            console.log(user);
+            customNotification(AppConstants.SUCCESS_MESSAGE, "User Logged In");
+          })
+          .catch(err => {
+            console.log(err);
+            customNotification(AppConstants.ERROR_MESSAGE,err.message);
+            this.setState({
+              buttonLoading: false
+            });
+          });
       }
     });
   };
 
   render() {
+    const { buttonLoading } = this.state;
+
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -52,7 +78,7 @@ class Login extends Component {
           className="login-form"
         >
           <Form.Item>
-            {getFieldDecorator("username", {
+            {getFieldDecorator("email", {
               rules: [
                 { required: true, message: "Please input your username!" }
               ]
@@ -61,7 +87,7 @@ class Login extends Component {
                 prefix={
                   <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
-                placeholder="Username"
+                placeholder="Email"
               />
             )}
           </Form.Item>
@@ -85,6 +111,8 @@ class Login extends Component {
               type="primary"
               htmlType="submit"
               className="login-form-button"
+              loading={buttonLoading}
+              onClick={this.handleSubmit}
             >
               Log In
             </Button>
