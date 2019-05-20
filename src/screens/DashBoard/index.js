@@ -222,12 +222,11 @@ class DashBoard extends Component {
           </div>
         </Row>
         <Menu effect={"fountain"} method={"hover"} position={"br"}>
-          <MainButton
-            iconResting="fas fa-plus"
-            iconActive="fas fa-times"
-          />
+          <MainButton iconResting="fas fa-plus" iconActive="fas fa-times" />
           <ChildButton
-            onClick={(e)=>{console.log('child clicked') }}
+            onClick={e => {
+              console.log("child clicked");
+            }}
             icon="fas fa-camera-retro"
             label="View on Github"
             // href="https://github.com/nobitagit/react-material-floating-button/"
