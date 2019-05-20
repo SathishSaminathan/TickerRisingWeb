@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Avatar, Popover, Tooltip } from "antd";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { connect } from "react-redux";
 
 import firebase from "../../config/firebase";
 import images from "../../assets/images";
@@ -13,8 +14,7 @@ import AppConstants from "../../constants/AppConstants";
 
 class Header extends Component {
   state = {
-    visible: false,
-    email: "AnanyaAnanyaAnanya@gmail.com"
+    visible: false
   };
 
   showModal = () => {
@@ -47,6 +47,9 @@ class Header extends Component {
   };
 
   render() {
+    console.log(this.props.currentUser && this.props.currentUser.email);
+
+    const email = this.props.currentUser && this.props.currentUser.email;
     const text = <span>LoggedIn as</span>;
     const content = (
       <div className="popover_style">
@@ -54,7 +57,7 @@ class Header extends Component {
           placement="left"
           title={
             <CopyToClipboard
-              text={this.state.email}
+              text={email}
               onCopy={() =>
                 customNotification(
                   AppConstants.INFO_MESSAGE,
@@ -63,11 +66,11 @@ class Header extends Component {
                 )
               }
             >
-              <span>{this.state.email}</span>
+              <span>{email}</span>
             </CopyToClipboard>
           }
         >
-          <span className="email">AnanyaAnanyaAnanya@gmail.com</span>
+          <span className="email">{email}</span>
         </Tooltip>
         <Button type="primary" onClick={this.logout}>
           Logout
@@ -112,4 +115,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.user.currentUser
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Header);

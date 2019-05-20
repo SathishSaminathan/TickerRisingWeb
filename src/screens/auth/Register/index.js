@@ -10,7 +10,8 @@ class Register extends Component {
   state = {
     email: null,
     password: null,
-    buttonLoading: false
+    buttonLoading: false,
+    userRef: firebase.database().ref("users")
   };
 
   setValue = e => {
@@ -29,18 +30,37 @@ class Register extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        const displayName =
+          values.email === "admin@gmail.com" ? "RET" : "CLIENT";
         firebase
           .auth()
           .createUserWithEmailAndPassword(values.email, values.password)
-          .then(user => {
-            console.log(user);
-            this.setState({
-              buttonLoading: false
-            });
-            customNotification(
-              AppConstants.SUCCESS_MESSAGE,
-              "User Successfully Created!!!"
-            );
+          .then(createdUser => {
+            console.log(createdUser);
+
+            createdUser.user
+              .updateProfile({
+                displayName: displayName
+              })
+              .then(() => {
+                console.log("User details updated...");
+                this.saveUser(createdUser).then(
+                  () => {
+                    console.log("user saved...");
+                  },
+                  () =>
+                    customNotification(
+                      AppConstants.SUCCESS_MESSAGE,
+                      "User Successfully Created!!!"
+                    )
+                );
+              })
+              .catch(err => {
+                console.log(err);
+                this.setState({
+                  buttonLoading: false
+                });
+              });
           })
           .catch(err => {
             console.log(err);
@@ -50,6 +70,13 @@ class Register extends Component {
             customNotification(AppConstants.ERROR_MESSAGE, err.message);
           });
       }
+    });
+  };
+
+  saveUser = createdUser => {
+    return this.state.userRef.child(createdUser.user.uid).set({
+      name: createdUser.user.displayName,
+      email: createdUser.user.email
     });
   };
 
