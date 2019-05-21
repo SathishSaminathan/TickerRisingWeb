@@ -36,27 +36,27 @@
   font-size: 20px;
 }
 
-.custom_table.pending .ant-table-thead tr {
+.custom_table.PENDING .ant-table-thead tr {
   background-color: #f8aa93;
 }
 
-.custom_table.pending .ant-table-tbody tr:hover td {
+.custom_table.PENDING .ant-table-tbody tr:hover td {
   background-color: #ffac939c;
 }
 
-.custom_table.wip .ant-table-thead tr {
+.custom_table.WIP .ant-table-thead tr {
   background-color: #5d9b84;
 }
 
-.custom_table.wip .ant-table-tbody tr:hover td {
+.custom_table.WIP .ant-table-tbody tr:hover td {
   background-color: #31d39730;
 }
 
-.custom_table.completed .ant-table-thead tr {
+.custom_table.COMPLETED .ant-table-thead tr {
   background-color: #75ACC0;
 }
 
-.custom_table.completed .ant-table-tbody tr:hover td {
+.custom_table.COMPLETED .ant-table-tbody tr:hover td {
   background-color: #75acc04f;
 }
 

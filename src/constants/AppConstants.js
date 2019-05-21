@@ -1,9 +1,9 @@
 const AppConstants = {
-  PENDING: "pending",
+  PENDING: "PENDING",
   PENDING_HEADER: "Pending Details",
-  WIP: "wip",
+  WIP: "WIP",
   WIP_HEADER: "Work In Process Details",
-  COMPLETED: "completed",
+  COMPLETED: "COMPLETED",
   COMPLETED_HEADER: "Completed Details",
   SUCCESS_MESSAGE:'success',
   ERROR_MESSAGE:'error',
@@ -11,7 +11,7 @@ const AppConstants = {
   TOP_RIGHT:'topRight',
   TOP_LEFT:'topLeft',
   BOTTOM_RIGHT:'bottomRight',
-  BOTTOM_LEFT:'bottomLeft'
+  BOTTOM_LEFT:'bottomLeft',
 };
 
 export default AppConstants;

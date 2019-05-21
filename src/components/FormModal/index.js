@@ -21,6 +21,7 @@ class FormModal extends Component {
     if (Array.isArray(e)) {
       return e;
     }
+  // this.props.getFile(e && e.fileList);
     return e && e.fileList;
   };
 
@@ -58,7 +59,7 @@ class FormModal extends Component {
 
   render() {
     const { previewVisible, previewImage, fileList } = this.state;
-    const { visible, onCancel, onCreate, form } = this.props;
+    const { visible, onCancel, onCreate, form , buttonLoading} = this.props;
     const { getFieldDecorator } = form;
     const formItemLayout = {
       labelCol: {
@@ -74,7 +75,7 @@ class FormModal extends Component {
     const props = {
       // action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
       onChange: this.handleChange,
-      multiple: true
+      multiple: false
     };
     return (
       <Modal
@@ -86,11 +87,12 @@ class FormModal extends Component {
         centered
         closable={false}
         width="80%"
+        confirmLoading={buttonLoading}
         // footer={null}
       >
         <Form {...formItemLayout} layout="vertical">
-          <Form.Item label="Issue Decription">
-            {getFieldDecorator("title", {
+          <Form.Item label="Issue Description">
+            {getFieldDecorator("description", {
               rules: [
                 {
                   required: true,
@@ -100,7 +102,7 @@ class FormModal extends Component {
             })(<TextArea autosize={{ minRows: 18, maxRows: 25 }} />)}
           </Form.Item>
           <Form.Item label="Upload Image">
-            {getFieldDecorator("upload", {
+            {getFieldDecorator("image", {
               valuePropName: "fileList",
               getValueFromEvent: this.normFile,
               rules: [
@@ -126,7 +128,7 @@ class FormModal extends Component {
             )}
           </Form.Item>
           <Form.Item label="Priority">
-            {getFieldDecorator("gender", {
+            {getFieldDecorator("priority", {
               rules: [
                 { required: true, message: "Please select one priority!" }
               ]
@@ -137,6 +139,9 @@ class FormModal extends Component {
               >
                 <Option value={1}>1</Option>
                 <Option value={2}>2</Option>
+                <Option value={3}>3</Option>
+                <Option value={4}>4</Option>
+                <Option value={5}>5</Option>
               </Select>
             )}
           </Form.Item>
@@ -146,7 +151,7 @@ class FormModal extends Component {
           footer={null}
           onCancel={this.handleCancel}
           centered
-          width='50%'
+          width="50%"
         >
           <img alt="example" style={{ width: "100%" }} src={previewImage} />
         </Modal>

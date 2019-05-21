@@ -15,22 +15,25 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-   this.setState({
-     buttonLoading:true
-   })
+    this.setState({
+      buttonLoading: true
+    });
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
         firebase
           .auth()
           .signInWithEmailAndPassword(values.email, values.password)
-          .then(user => {
-            console.log(user);
-            customNotification(AppConstants.SUCCESS_MESSAGE, "User Logged In");
+          .then(createdUser => {
+            console.log(createdUser.user);
+            customNotification(
+              AppConstants.SUCCESS_MESSAGE,
+              `Logged In as ${createdUser.user.displayName}`
+            );
           })
           .catch(err => {
             console.log(err);
-            customNotification(AppConstants.ERROR_MESSAGE,err.message);
+            customNotification(AppConstants.ERROR_MESSAGE, err.message);
             this.setState({
               buttonLoading: false
             });

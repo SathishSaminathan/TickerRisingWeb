@@ -35,7 +35,7 @@
     }
   }
 
-  &.pending {
+  &.PENDING {
     .ant-table-thead {
       tr {
         background-color: $pendingCard;
@@ -51,7 +51,7 @@
       }
     }
   }
-  &.wip {
+  &.WIP {
     .ant-table-thead {
       tr {
         background-color: $wipCard;
@@ -67,7 +67,7 @@
       }
     }
   }
-  &.completed {
+  &.COMPLETED {
     .ant-table-thead {
       tr {
         background-color: $completedCard;
