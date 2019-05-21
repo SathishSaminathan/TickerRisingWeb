@@ -72,3 +72,4 @@ class App extends Component {
 const RouteWithAuth = withRouter(App);
 
 export default connect(null, {setUser})(RouteWithAuth);
+ 
