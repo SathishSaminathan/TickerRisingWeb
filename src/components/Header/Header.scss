@@ -1,0 +1,86 @@
+@import "./../../constants/ThemeConstants/Colors";
+@import "./../../constants/ThemeConstants/variable";
+
+.header {
+  height: $header_height;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px 2px $boxShadow;
+  display: flex;
+  justify-content: space-between;
+  .left {
+    .logoImage {
+      height: $header_height;
+      width: $header_height;
+    }
+  }
+  .right {
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .avatarContainer {
+      // background-color: red;
+      padding: 10px;
+    }
+    .custom_button {
+      font-size: $small_font_size;
+      // height: 40px;
+      box-shadow: 0 0 50px 1px $boxShadow !important;
+      background-color: $themePrimaryColor !important;
+    }
+  }
+}
+
+.ant-modal {
+  .ant-modal-content {
+    border-radius: 10px;
+    .ant-modal-header {
+      background: linear-gradient(
+        90deg,
+        rgba(74, 74, 150, 1) 20.5544659269958%,
+        rgba(73, 73, 149, 1) 20.5544659269958%,
+        rgba(44, 44, 84, 1) 80.55479418329831%
+      );
+      .ant-modal-title {
+        color: white;
+        font-size: $medium_font_size;
+      }
+    }
+    .ant-modal-body {
+      .ant-form-item-label {
+        label {
+          font-size: $small_font_size;
+        }
+      }
+    }
+  }
+}
+
+//upload list style
+.ant-upload-list {
+  .ant-upload-list-item {
+    border-color: $themePrimaryColor;
+    .ant-upload-list-item-name {
+      color: $themePrimaryColor;
+    }
+  }
+}
+
+.ant-popover{
+  max-width: 260px;
+}
+.popover_style{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .email{
+    font-size: 18px !important;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

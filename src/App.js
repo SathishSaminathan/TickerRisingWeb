@@ -1,12 +1,75 @@
 import React, { Component } from "react";
-import PreLoader from "./components/PreLoader";
+import $ from "jquery";
+import { findDOMNode } from "react-dom";
+import {
+  BrowserRouter as Router,
+  withRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+import { connect } from "react-redux";
+
+import firebase from "./config/firebase";
+// import PreLoader from "./components/PreLoader";
+import Loader from "./components/Loader";
+import Login from "./screens/auth/Login";
+import Register from "./screens/auth/Register";
+import {  setUser } from "./store/actions/index";
+
+import DashBoard from "./screens/DashBoard";
 
 class App extends Component {
-  componentDidMount(){
-    // alert('hai')
+  state = {
+    loading: true
+  };
+  componentDidMount() {
+    // const preloader = findDOMNode(this.refs.preloader);
+    // setTimeout(() => {
+    //   this.setState({
+    //     Loading: false
+    //   });
+    //   $(preloader).fadeOut();
+    // }, 2500);
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({
+        loading: false
+      });
+      if (user) {
+        this.props.setUser(user)
+        this.props.history.push("/");
+      } else {
+        this.props.history.push("/login");
+      }
+    });
   }
   render() {
-    return <PreLoader />;
+    const { loading } = this.state;
+    return (
+      <React.Fragment>
+        {/* <PreLoader timer={1} ref="preloader" /> */}
+        {/* <Loader/> */}
+        {/* {!Loading && <div>hai</div>} */}
+        {/* <Layout /> */}
+        {/* <Layout> */}
+        {loading ? (
+          <Loader />
+        ) : (
+          <Switch>
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/" exact component={DashBoard} />
+            {/* <Route path="/" exact component={Login} /> */}
+            <Route render={() => <h4>Error Page</h4>} />
+          </Switch>
+        )}
+
+        {/* </Layout> */}
+      </React.Fragment>
+    );
   }
 }
-export default App;
+
+const RouteWithAuth = withRouter(App);
+
+export default connect(null, {setUser})(RouteWithAuth);
+ 

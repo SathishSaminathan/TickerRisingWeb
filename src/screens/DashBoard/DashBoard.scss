@@ -1,0 +1,101 @@
+@import "../../constants/ThemeConstants/Colors";
+@import "../../constants/ThemeConstants/variable";
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.custom_table {
+  .ant-table-thead {
+    background-color: black;
+
+    .ant-table-header-column {
+      font-size: $medium_font_size;
+      .ant-table-column-sorters {
+        color: $themePrimaryColor;
+        .ant-table-column-sorter {
+          .ant-table-column-sorter-inner {
+            color: $themePrimaryColor;
+          }
+        }
+      }
+    }
+    .ant-dropdown-trigger {
+      color: $themePrimaryColor !important;
+    }
+  }
+  .ant-table-title {
+    font-size: $Xlarge_font_size;
+    color: $themePrimaryColor;
+  }
+  .ant-table-tbody {
+    .ant-table-row {
+      font-size: $medium_font_size;
+    }
+  }
+
+  &.PENDING {
+    .ant-table-thead {
+      tr {
+        background-color: $pendingCard;
+      }
+    }
+    .ant-table-tbody {
+      tr {
+        &:hover {
+          td {
+            background-color: $pendingTableHover;
+          }
+        }
+      }
+    }
+  }
+  &.WIP {
+    .ant-table-thead {
+      tr {
+        background-color: $wipCard;
+      }
+    }
+    .ant-table-tbody {
+      tr {
+        &:hover {
+          td {
+            background-color: $wipTableHover;
+          }
+        }
+      }
+    }
+  }
+  &.COMPLETED {
+    .ant-table-thead {
+      tr {
+        background-color: $completedCard;
+      }
+    }
+    .ant-table-tbody {
+      tr {
+        &:hover {
+          td {
+            background-color: $completedTableHover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mfb-component--br {
+  margin: 0;
+  bottom: 10px;
+  right: 5px;
+  a {
+    &:hover {
+      color: white;
+    }
+  }
+}
+.mfb-component__wrap {
+  padding: 0;
+  margin: 0;
+}
